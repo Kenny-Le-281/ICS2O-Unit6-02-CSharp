@@ -7,13 +7,15 @@ using System;
 using System.Threading.Tasks;
 using System.IO;
 
-class Program {
+class Program
+{
     public static async Task Main()
     {
         int counter = 0;
         string repeatQuestion;
 
-        while (true) {
+        while (true)
+        {
             Console.WriteLine("");
             Console.WriteLine("Do you want to quit the program?");
             Console.WriteLine("");
