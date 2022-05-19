@@ -8,27 +8,28 @@ using System.Threading.Tasks;
 using System.IO;
 
 class Program {
-  public static async Task Main()
+    public static async Task Main()
     {
-        int yes = 1;
-        string no;
         int counter = 0;
-        string text;
-      
-        Console.WriteLine("Do you want to quit the program?");
+        string repeatQuestion;
+
+        while (true) {
+            Console.WriteLine("");
+            Console.WriteLine("Do you want to quit the program?");
+            Console.WriteLine("");
+            Console.WriteLine("Type 'yes' to end the program or type 'no' to add 1 to the counter");
+            repeatQuestion = Convert.ToString(Console.ReadLine());
+            if (repeatQuestion == "yes")
+            {
+                break;
+            }
+            counter++;
+            await File.WriteAllTextAsync("WriteText.txt", counter.ToString());
+            // write to file
+        }
+        // end program
         Console.WriteLine("");
-        Console.WriteLine("Type 'yes' to end the program or type 'no' to add 1 to the counter");
-        yes = Convert.ToInt32(Console.ReadLine());
-        no = Convert.ToString(Console.ReadLine());
-
-
-        text =
-            "Number: ";
-
-        await File.WriteAllTextAsync("WriteText.txt", text);
-        Console.WriteLine("File Created ...");
-
-        var someText = await File.ReadAllTextAsync(@"WriteText.txt");
-        Console.WriteLine(someText);
+        Console.WriteLine("The program has ended!");
+        Console.WriteLine("\nDone.");
     }
 }
